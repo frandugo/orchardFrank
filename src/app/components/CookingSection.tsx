@@ -26,7 +26,7 @@ export const CookingSection = async ({items}: {items: CookingInterface[]}) => {
                 ))}
             </div> 
             <div className="cooking__text">
-                <h2 className='text__title'>{section.title}</h2>
+                <h2 className='text__title text__title--left'>{section.title}</h2>
                 <p className='text__paragraph'>{section.info}</p>
             </div> 
         </Fragment>    

@@ -6,7 +6,7 @@ import { extractTextFromRichText } from '@/helpers/richText'
 export const CookingPosts = async ({items}: {items: CookingPostInterface[]}) => {
   return (
     <section className="cooking-posts">
-      <h2 className="cooking-posts__title">Taste the colours</h2>
+      <h2 className="text__title">Taste the colours</h2>
       <div className="cooking-posts__grid">
         {items.map((post: CookingPostInterface, index: number) => (
           <article key={index} className="cooking-post">

@@ -17,8 +17,6 @@ export async function fetchContentfulGraphQL(query: string, variables = {}) {
 
   const data = await response.json();
 
-  console.log(' data from contentful ', data);
-
   if (data.errors) {
   console.error('Contentful GraphQL Error:', JSON.stringify(data.errors, null, 2));
   throw new Error('Failed to fetch from Contentful');
