@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import Image from 'next/image';
 
 import { CookingInterface, ContentfulImage } from '@/types/CookingInterface';
