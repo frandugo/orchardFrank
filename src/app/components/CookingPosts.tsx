@@ -1,35 +1,34 @@
-import Image from 'next/image';
+import { Card } from './CookingCard'
 
 import { CookingPostInterface } from '@/types/CookingInterface';
-import { extractTextFromRichText } from '@/helpers/richText'
 
 export const CookingPosts = async ({items}: {items: CookingPostInterface[]}) => {
   return (
-    <section className="cooking-posts">
-      <h2 className="text__title">Taste the colours</h2>
-      <div className="cooking-posts__grid">
-        {items.map((post: CookingPostInterface, index: number) => (
-          <article key={index} className="cooking-post">
-            <div className="cooking-post__image">
-              {post.image && (
-                <Image 
-                  src={post.image.url} 
-                  alt={post.image.description || post.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover"
-                  priority={index < 2}
-                />
-              )}
-            </div> 
-            <div className="cooking-post__content">
-              <h3 className="cooking-post__title">{post.title}</h3>
-              <p className="cooking-post__excerpt">
-                {extractTextFromRichText(post.description)}
-              </p>
-            </div> 
-          </article>    
-        ))}
+    <section 
+      className="cooking-posts" 
+      aria-labelledby="cooking-posts-title"
+      aria-describedby="cooking-posts-description"
+    >
+      <header>
+        <h2 id="cooking-posts-title" className="text__title">Taste the colours</h2>
+        <p id="cooking-posts-description" className="sr-only">
+          Latest cooking posts and recipes featuring delicious dishes and culinary tips...
+        </p>
+      </header>
+      <div 
+        className="cooking-posts__grid" 
+        role="feed" 
+        aria-label="Latest cooking posts"
+        aria-describedby="posts-count"
+        aria-live="polite"
+        aria-atomic="false"
+      >
+        <div className="sr-only" id="posts-count">
+          Showing {items.length} cooking posts
+        </div>
+        {items.map((post: CookingPostInterface, index: number) => {
+          return <Card key={index} post={post} id={index} />
+        })}
       </div>
     </section>
   );

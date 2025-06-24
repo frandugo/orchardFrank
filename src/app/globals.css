@@ -1,11 +1,12 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0e1414;
+  --foreground: #ededed;
+  --white: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0e1414;
     --foreground: #ededed;
   }
 }
@@ -29,7 +30,10 @@ body {
   padding: 0;
   margin: 0;
 }
-
+*:focus {
+  outline: 2px solid #007acc;
+  outline-offset: 2px;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -39,4 +43,352 @@ a {
   html {
     color-scheme: dark;
   }
+}
+.wrapper{
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 100%;
+  padding: 0 2rem;
+}
+.cooking{
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  width: 100%;  
+}
+.cooking__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+}
+.image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.image0 {
+  grid-row: 1 / span 2;
+}
+.image1 {
+  grid-column: 2;
+  grid-row: 1;
+}
+.image2 {
+  grid-column: 2;
+  grid-row: 2;
+}
+.cooking__text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.text__title{
+  color: var(--white);
+  font-weight: 300;
+  font-size: 2rem;
+  border-bottom: 1px solid var(--white);
+  display: inline-block;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  text-transform: uppercase;
+}
+.text__paragraph{
+  color: var(--white);
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+.cooking-posts {
+  padding: 4rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.cooking-posts__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+.cooking-post {
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cooking-post__image {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+.cooking-post__image img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(1);
+}
+.cooking-post:hover .cooking-post__image img {
+  transform: scale(1.1);
+}
+.cooking-post__content {
+  padding: 1.5rem;
+}
+.cooking-post__title {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  text-align: center;
+}
+.cooking-post__excerpt {
+  color: var(--foreground);
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+@media (max-width: 1024px) {
+  .wrapper {
+    max-width: 100%;
+    padding: 0 1.5rem;
+  }
+  .cooking {
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+  }
+  .text__title { font-size: 1.8rem; }
+  .text__paragraph {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {  
+
+  .cooking {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .cooking__images {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.75rem;
+  }
+  
+  .image0 {
+    grid-row: 1 / span 2;
+    min-height: 300px;
+  }
+  
+  .image1, .image2 {
+    min-height: 140px;
+  }
+
+  .cooking__text { text-align: center; }
+  
+  .text__title {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .cooking-posts__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .cooking-posts__title {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cooking-post__image {
+    height: 200px;
+  }
+  
+  .cooking-post__content {
+    padding: 1rem;
+  }
+  
+  .cooking-post__title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {  
+  .cooking {
+    gap: 1rem;
+    padding: 0.75rem 0;
+  }
+  
+  .cooking__images {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.5rem;
+  }
+  
+  .image0, .image1, .image2 {
+    grid-column: 1;
+    min-height: 200px;
+  }
+  
+  .image0 {
+    grid-row: 1;
+  }
+  
+  .image1 {
+    grid-row: 2;
+  }
+  
+  .image2 {
+    grid-row: 3;
+  }
+  
+  .text__title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .text__paragraph {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  
+  .cooking {
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+  }
+  
+  .cooking__images {
+    gap: 0.4rem;
+  }
+  
+  .image0, .image1, .image2 {
+    min-height: 160px;
+  }
+  
+  .text__title {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .text__paragraph {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+  }
+  
+  .cooking-posts {
+    padding: 2rem 0;
+  }
+  
+  .cooking-posts__title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .cooking-posts__grid {
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .cooking-post {
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .cooking-posts header {
+    margin-bottom: 3rem;
+  }
+  
+  .cooking-posts__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    width: 100%;
+  }
+  
+  .cooking-post:focus-within {
+    outline: 2px solid #007acc;
+    outline-offset: 4px;
+    border-radius: 12px;
+  }
+  
+  .cooking-post__image {
+    height: 180px;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .cooking-post__image img {
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .cooking-post__content {
+    padding: 0.75rem;
+  }
+  
+  .cooking-post__title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  
+  .cooking-post__excerpt {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .cooking-post:hover .cooking-post__image img {
+    transform: scale(1.05);
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.cooking-item {
+  display: contents;
+}
+
+.cooking-item .cooking__images {
+  position: relative;
+}
+
+.cooking-item .cooking__text {
+  position: relative;
+}
+
+figure.image {
+  margin: 0;
+  position: relative;
+}
+
+figure.image figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem;
+  font-size: 0.875rem;
 }
