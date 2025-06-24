@@ -22,7 +22,7 @@ export interface CookingArrayInterface {
 export interface CookingPostInterface {
     title: string
     description: {
-        json: unknown
+        json: never
     }
     image: ContentfulImage
 }
