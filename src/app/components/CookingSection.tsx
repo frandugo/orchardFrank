@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
 
 import { CookingInterface, ContentfulImage } from '@/types/CookingInterface';
 
@@ -66,7 +67,7 @@ export const CookingSection = async ({items}: {items: CookingInterface[]}) => {
                   id={`cooking-title-${index}`}
                   className='text__title text__title--left'
                 >
-                  {section.title}
+                    <ReactMarkdown>{section.title}</ReactMarkdown>
                 </h2>
                 <p 
                   id={`cooking-description-${index}`}
